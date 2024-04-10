@@ -1,0 +1,23 @@
+service: transcribe-with-faster-whisper
+
+frameworkVersion: '3'
+
+provider:
+  name:    aws
+  runtime: python3.9
+  region:  ap-northeast-1
+  stage:   prod
+  ecr:
+    images:
+      containerImage:
+        path: ./
+
+functions:
+  main:
+    name: 'transcribe-with-faster-whisper'
+    image:
+      name: containerImage
+      command: ['handler.main']
+    timeout: 900
+    maximumRetryAttempts: 0
+    memorySize: 10240

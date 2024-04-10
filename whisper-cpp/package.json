@@ -1,24 +1,30 @@
 {
-  "name": "transcribe-with-whisper",
+  "name": "transcribe-with-whisper-cpp",
   "version": "1.0.0",
   "description": "Serverless aws-nodejs-typescript template",
   "main": "serverless.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "check": "tsc --noEmit",
+    "check:watch": "tsc -w --noEmit",
+    "build": "rollup -c"
   },
   "engines": {
     "node": ">=14.15.0"
   },
   "dependencies": {
     "@middy/core": "^3.4.0",
-    "@middy/http-json-body-parser": "^3.4.0"
+    "@middy/http-json-body-parser": "^3.4.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "child_process": "^1.0.2"
   },
   "devDependencies": {
+    "rollup-plugin-typescript2": "^0.36.0",
     "@serverless/typescript": "^3.0.0",
     "@types/aws-lambda": "^8.10.71",
     "@types/node": "^14.14.25",
-    "esbuild": "^0.14.11",
     "json-schema-to-ts": "^1.5.0",
+    "rollup": "^4.14.0",
+    "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.23",
     "serverless": "^3.0.0",
     "serverless-esbuild": "^1.23.3",
     "ts-node": "^10.4.0",
